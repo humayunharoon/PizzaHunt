@@ -1,0 +1,16 @@
+PODS:
+  - Foursquare-API-v2 (1.4.8)
+  - INTULocationManager (4.0.0)
+  - MBProgressHUD (0.9.1)
+
+DEPENDENCIES:
+  - Foursquare-API-v2 (~> 1.4)
+  - INTULocationManager (~> 4.0)
+  - MBProgressHUD (~> 0.9)
+
+SPEC CHECKSUMS:
+  Foursquare-API-v2: dedba546a2048dc66dc444e9784fc5f9c27f81d9
+  INTULocationManager: 754f2800415378b7bb2c07be103449e1f6a2cc70
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+
+COCOAPODS: 0.36.1
