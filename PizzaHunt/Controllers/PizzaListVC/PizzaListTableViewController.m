@@ -126,7 +126,7 @@
 	INTULocationManager *locMgr = [INTULocationManager sharedInstance];
 	[locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyNeighborhood
 									   timeout:10.0
-						  delayUntilAuthorized:YES  // This parameter is optional, defaults to NO if omitted
+						  delayUntilAuthorized:YES
 										 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
 											 if (status == INTULocationStatusSuccess) {
 												 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -144,6 +144,8 @@
 												 // if you dont set it on the simulator immediately, location search will fail.
 												 // so you can comfortably set the provided GPX file and it'll then fetch location data and proceed
 												 
+												 // this would never be done in a real world scenario
+												 
 												 [self determineUserLocationAndSearchForPizzaPlaces];
 											 }
 										 }];
@@ -155,7 +157,7 @@
 {
 	[MBProgressHUD showHUDAddedTo:self.view animated:YES].labelText = @"Looking for Pizzas";
 	
-	[Foursquare2 venueSearchNearByLatitude:[NSNumber numberWithFloat:currentLocation.coordinate.latitude] longitude:[NSNumber numberWithFloat:currentLocation.coordinate.longitude] query:@"Pizza Place" limit:@5 intent:intentBrowse radius:@5000 categoryId:@"4bf58dd8d48988d1ca941735" callback:^(BOOL success, id result) {
+	[Foursquare2 venueSearchNearByLatitude:[NSNumber numberWithFloat:currentLocation.coordinate.latitude] longitude:[NSNumber numberWithFloat:currentLocation.coordinate.longitude] query:nil limit:@5 intent:intentBrowse radius:@5000 categoryId:@"4bf58dd8d48988d1ca941735" callback:^(BOOL success, id result) {
 		
 		[MBProgressHUD hideHUDForView:self.view animated:YES];
 		NSArray *venues = result[@"response"][@"venues"];
